@@ -1,0 +1,44 @@
+{
+  "name": "dev-console-kit",
+  "version": "1.0.0",
+  "description": "The ultimate debugging toolkit for React & Next.js students. Features environment detection, mentor tips, and a CSS layout debugger.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murathudavendigar/dev-console-kit.git"
+  },
+  "homepage": "https://github.com/murathudavendigar/dev-console-kit#readme",
+  "bugs": {
+    "url": "https://github.com/murathudavendigar/dev-console-kit/issues"
+  },
+  "keywords": [
+    "logger",
+    "debug",
+    "debugger",
+    "nextjs",
+    "react",
+    "education",
+    "css-debugger",
+    "mentor",
+    "developer-tools",
+    "console",
+    "typescript",
+    "learning"
+  ],
+  "author": "Murat Hüdavendigâr Öncü <https://murathudavendigar.vercel.app/>",
+  "license": "ISC",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
