@@ -28,12 +28,44 @@ export interface Logger {
   warning(msg: string): void;
 
   /**
+   * Logs an informational message
+   * @param msg - The info message to display
+   * @param data - Optional additional data to log
+   */
+  info(msg: string, data?: any): void;
+
+  /**
+   * Logs a debug message (useful for verbose logging)
+   * @param msg - The debug message to display
+   * @param data - Optional additional data to log
+   */
+  debug(msg: string, data?: any): void;
+
+  /**
    * Inspects and displays an object in a structured format
    * Uses console.table in browser, console.dir in Node.js
    * @param label - A descriptive label for the inspection
    * @param object - The object to inspect
    */
   inspect(label: string, object: any): void;
+
+  /**
+   * Starts a performance timer with the given label
+   * @param label - The timer label
+   */
+  time(label: string): void;
+
+  /**
+   * Ends a performance timer and logs the elapsed time
+   * @param label - The timer label (must match the label used in time())
+   */
+  timeEnd(label: string): void;
+
+  /**
+   * Enables or disables all logging
+   * @param enabled - Whether logging should be enabled
+   */
+  setEnabled(enabled: boolean): void;
 
   /**
    * Activates CSS layout debugging mode (browser only)

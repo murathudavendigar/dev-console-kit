@@ -9,11 +9,15 @@ It helps you debug faster, understand Server/Client environments, and fix CSS la
 
 **Environment Detection:** Automatically labels logs as `[CLIENT]` or `[SERVER]`.
 
-**Mentor Tips:** Provides a random "Clean Code" tip in the console on every refresh.
+**Mentor Tips:** Provides a random "Clean Code" tip in the console on every refresh (30+ categorized tips).
 
 **CSS X-Ray:** A "Golden Shot" feature to outline all DOM elements for layout debugging.
 
-**Pretty Logs:** Color-coded success, error, and warning messages.  
+**Pretty Logs:** Color-coded success, error, warning, info, and debug messages.  
+
+**Performance Tracking:** Built-in timer functions to measure execution time.
+
+**Toggle Logging:** Enable/disable all logs for production builds.
 
 **Smart Inspection:** Table view for objects in browser, detailed structure in terminal.  
 
@@ -54,9 +58,30 @@ import Logger from 'dev-console-kit';
 Logger.success("User logged in successfully!");
 Logger.error("API Connection Failed", { error: 500 });
 Logger.warning("This component is deprecated.");
+Logger.info("Application started on port 3000");
+Logger.debug("Detailed debugging info", { state: "loading" });
 ```
 
-### 2. Inspecting Data (Props, State, etc.)
+### 2. Performance Tracking
+Measure how long operations take:
+
+```javascript
+Logger.time("API Call");
+await fetchUserData();
+Logger.timeEnd("API Call"); // Logs: "API Call: 245.32ms"
+```
+
+### 3. Toggle Logging
+Disable all logs in production:
+
+```javascript
+// In your main entry file
+if (process.env.NODE_ENV === 'production') {
+  Logger.setEnabled(false);
+}
+```
+
+### 4. Inspecting Data (Props, State, etc.)
 Prints data in a clean table format (in browser) or detailed structure (in terminal).
 
 ```javascript
@@ -64,7 +89,7 @@ const user = { id: 1, name: "John", role: "Admin" };
 Logger.inspect("User Data", user);
 ```
 
-### 3. CSS Layout Debugging
+### 5. CSS Layout Debugging
 Struggling with CSS? Can't see which div is overflowing? Run this function once to outline **everything** on the page.
 
 ```javascript
@@ -87,11 +112,45 @@ Logs an error message with optional error details.
 ### `Logger.warning(msg)`
 Logs a warning message.
 
+### `Logger.info(msg, data?)`
+Logs an informational message with optional data.
+
+### `Logger.debug(msg, data?)`
+Logs a debug message (useful for verbose logging).
+
 ### `Logger.inspect(label, object)`
 Inspects and displays an object in a structured format.
 
+### `Logger.time(label)`
+Starts a performance timer with the given label.
+
+### `Logger.timeEnd(label)`
+Ends a performance timer and logs the elapsed time.
+
+### `Logger.setEnabled(enabled)`
+Enables or disables all logging. Useful for production builds.
+
+```javascript
+Logger.setEnabled(false); // Disable all logs
+Logger.setEnabled(true);  // Re-enable logs
+```
+
 ### `Logger.debugLayout()`
 Activates CSS layout debugging mode (browser only). Outlines all DOM elements with random colors.
+
+---
+
+## Mentor Tips
+
+The package includes 30+ categorized mentor tips covering:
+- **React**: Hooks, state management, best practices
+- **Next.js**: Server components, routing, optimization
+- **CSS**: Flexbox, Grid, responsive design
+- **Performance**: Optimization techniques
+- **Clean Code**: Best practices and patterns
+- **Debugging**: Tips and tricks
+
+A random tip is displayed in the browser console on every refresh!
 
 ---
 
